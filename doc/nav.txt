@@ -1,0 +1,15 @@
+Menu						Router									Controller::method
+
+Финансы             		(finance/)
+	Счета               	(invoices/)								Invoice::index
+		Создать новый		(invoice/create)						Invoice::create
+							(invoices/get-all)						Invoice::getlist
+
+Профиль						(profile/)								Profile::index
+	Доставка				(deliveries/)							Delivery::index
+		Создать новый		(delivery/create)						Delivery::create
+							(delivery/get_customer_deliveries)		Delivery::get_customer_deliveries
+	
+	
+	Юридические лица		(legal_entities/)						LegalEntity::index
+		Создать новое		(legal_entity/create)					LegalEntity::create

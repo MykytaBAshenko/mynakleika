@@ -1,0 +1,45 @@
+{
+    "message": "Could not connect to FTP server"
+    "status" : "error"
+    "data": {}
+}
+
+//file_uploaded
+{
+    "message": "File Uploaded"
+    "status" : "uploaded"
+    "data": {
+        "file_name": "filename"
+    }
+}
+
+//process_errors
+{
+    "message": "Process Errors"
+    "status" : "process_error"
+    "data": {
+        "process_errors" = {
+            "error_msg_1",
+            "error_msg_2",
+        }
+    }
+}
+
+//process_info
+{
+    "message": "Process Info"
+    "status" : "process_info"
+    "data": {
+        "process_info" = {
+            "colorspace": "CMYK",
+            "resolution": "300 dpi",
+        },
+        "process_warnings" = {
+            "warning_msg_1",
+            "warning_msg_2",
+        },
+        "preview_filename": "file1"
+    }
+}
+
+

@@ -1,0 +1,153 @@
+// Override the Bootstrap defaults without modifying key, versioned files.
+$enable-rounded: false;
+
+// rounded border fix
+.btn, .badge, .form-control, .card, .dropdown-menu, .custom-file-label, .custom-select, .input-group-text {
+    border-radius: 0 !important;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.multiselect {
+    min-height: 39px;
+
+    div, ul {
+        border-radius: 0;
+    }
+
+    .multiselect__content-wrapper {
+        border-radius: 0;
+    }
+
+    .multiselect__input,
+    .multiselect__single,
+    .multiselect__placeholder,
+    .multiselect__element {
+        font-size: 0.875rem;
+        color: #5c6873;
+
+        .multiselect__option {
+            border: none;
+        }
+    }
+
+    .multiselect__tags {
+        padding: 7px 40px 0 12px;
+        min-height: 39px;
+        border: 1px solid #ced4da;
+
+        .multiselect__placeholder {
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .multiselect__single,
+        .multiselect__input,
+        .multiselect__input .multiselect__single {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .multiselect__select {
+        padding: 0;
+        height: 39px;
+    }
+
+    .multiselect__select::before {
+        right: -4px;
+        top: 60%;
+        border-color: #23282c transparent transparent;
+    }
+}
+
+.multiselect--active {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.is-invalid .multiselect__tags {
+    border: 1px solid #dc3545;
+}
+
+.is-valid .multiselect__tags {
+    border: 1px solid #4dbd74;
+}
+
+.is-invalid .multiselect--active {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.is-valid .multiselect--active {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+// Preview
+.preview {
+    text-align: center;
+    max-height: 350px;
+    border: #333 dotted 1px;
+    img {
+        padding: 5px;
+        max-height: 350px;
+        max-width: 100%;
+    }
+}
+
+// Order Layout Canvas
+#canvas_wrapper {
+    text-align: center;
+    canvas {
+        border: 1px solid #ced4da;
+    }
+}
+
+#v_label {
+    white-space: nowrap;
+    div {
+        width: 220px;
+        margin: 0 -100px;
+        transform-origin: 50% 50%;
+        transform: rotate(-90deg);
+
+    }
+}
+
+// FileUploadComponent
+.error-message {
+    color: white;
+    a {
+        text-decoration: underline dotted;
+        color: white;
+        &:hover {
+            color: lightgray;
+        }
+    }
+}
+
+.warning-message {
+    color: black;
+    a {
+        text-decoration: underline dotted;
+        color: black;
+        &:hover {
+            color: darkgray;
+        }
+    }
+}
+
+.text-red {
+    color: #f86c6b !important;
+}
+
+.text-green {
+    color: #4dbd74 !important;
+}

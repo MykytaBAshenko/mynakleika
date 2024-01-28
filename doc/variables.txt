@@ -1,0 +1,32 @@
+// Config variables
+// php artisan db:seed --class=OptionTableSeeder
+
+1. Layout Canvas
+
+maxW        // maximum layout width 
+maxH        // maximum layout height
+
+fieldW      // layout field width
+fieldH      // layout field height
+
+bleed       // document bleed
+
+
+2. Order Form
+
+day_dicsount {
+    'two'   => 1.1,
+    'three' => 1.05,
+    'four'  => 1,
+}
+
+materials {
+    id
+    material_name
+    material_price
+}
+
+material_options {
+    value: id
+    text: material_name
+}

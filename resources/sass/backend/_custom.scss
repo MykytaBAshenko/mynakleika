@@ -1,0 +1,468 @@
+// fix container-fluid padding
+.main .container-fluid {
+	padding: 0 15px;
+}
+
+.app-header {
+    padding: 0 15px;
+
+    .navbar-brand {
+    	width: 185px;
+    }
+
+    .sidebar-toggler {
+        background-color: #fff;
+        border: none;
+        min-width: 50px;
+        padding: 0.25rem 0;
+        font-size: 1.09375rem;
+        line-height: 1;
+	}
+
+	.navbar-nav {
+		.nav-link.active {
+			color: #20a8d8 !important;
+		}
+	}
+
+    .navbar-collapse {
+        padding-left: 22px;
+    }
+
+    .nav-item .svg-inline--fa {
+        font-size: 1.3em;
+        vertical-align: baseline;
+    }
+}
+
+.brand-minimized .app-header {
+    padding-left: 0;
+}
+
+.main .breadcrumb {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media (max-width: 991.98px) {
+	.app-header .navbar-brand {
+    	margin-left: -92.5px;
+	}
+
+	.app-header {
+        .navbar-nav {
+            flex-direction: column;
+            background-color: #fff;
+
+            li {
+                padding: 10px 25px;
+                text-align: left;
+                width: 100%;
+            }
+
+            li:hover {
+                background-color: #eee;
+			}
+
+		}
+
+        .navbar-collapse {
+            padding-left: 0px;
+            position: absolute;
+            width: 200px;
+            right: 30px;
+            top: 50px;
+        }
+
+        .nav-item {
+			align-self: flex-end;
+        }
+    }
+}
+
+.sidebar .nav,
+.sidebar .sidebar-nav,
+.sidebar-fixed .sidebar {
+	width: 250px;
+}
+
+.app-body .sidebar {
+	flex: 0 0 250px;
+}
+
+html:not([dir="rtl"]) .sidebar {
+	margin-left: -250px;
+}
+
+@media (min-width: 992px) {
+	html:not([dir="rtl"]) {
+		.sidebar-lg-show.sidebar-fixed .main,
+		.sidebar-lg-show.sidebar-fixed .app-footer {
+			margin-left: 250px;
+		}
+	}
+}
+
+.user-menu {
+    li {
+        font-size: 1rem;
+        padding-right: 1rem;
+    }
+
+    .active a.nav-link {
+        color: #007bff;
+    }
+
+    i::before {
+        font-size: 1.2rem;
+        padding-right: 0.5rem;
+        vertical-align: sub;
+    }
+}
+
+// Orders Table
+
+.order-table {
+    font-size: 0.75rem;
+
+    td, th {
+        vertical-align: middle;
+    }
+
+    th.sm {
+        max-width: 80px;
+    }
+
+    .btn-outline-secondary {
+        :focus {
+            box-shadow: none;
+        }
+
+        color: #333;
+    }
+}
+
+.form-group.required .col-form-label:after {
+    content:"*";
+}
+
+.spoiler div {
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.finance-status-in-table {
+    font-size: 1.2rem;
+    vertical-align: text-bottom;
+}
+
+.table-icon {
+	font-size: 1.3rem;
+	padding-top: 0.2rem;
+    display: inline-flex;
+}
+
+.order-details-link {
+    text-decoration: dotted;
+    text-decoration-line: underline;
+}
+
+// Sidebar Classes
+
+.sidebar {
+    .card {
+        border: none;
+    }
+
+    .text-muted {
+        color: #6C757D !important;
+    }
+
+    .order-info {
+        width: 44px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    h4, h5, h6 {
+        color: #E4E5E6;
+    }
+
+    h6 {
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
+
+    hr {
+        margin: 1rem 0;
+        border-bottom: 1px solid #6C757D;
+    }
+}
+
+// rounded border fix
+.btn, .badge, .form-control, .card, .dropdown-menu, .custom-file-label, .custom-select, .input-group-text {
+    border-radius: 0 !important;
+}
+
+// Actions button's margin fix
+.btn-group > .btn, .btn-group-vertical > .btn {
+    margin-right: 0.8em;
+}
+
+
+// Additional button fix
+.btn [class^="icon-"], .btn [class*=" icon-"] {
+    display: inline-block;
+    margin-top: 0px !important;
+    vertical-align: middle;
+}
+
+.icon-dollar-sign {
+    font-size: 1.2em;
+}
+
+.badge {
+    font-size: 85%;
+    padding: 0.3rem 0.4rem;
+    margin: 0.1rem 0.1rem;
+}
+
+.close {
+    line-height: 0.7;
+}
+
+.inline-button {
+    padding: 0 10px 1px 10px;
+    vertical-align: baseline;
+    font-size: 94%;
+    font-weight: bold;
+    color: white;
+}
+
+// .invalid-feedback class fix for CoreUi
+.invalid-feedback {
+    display: block;
+}
+
+
+// Preview
+
+.preview {
+    text-align: center;
+    max-height: 350px;
+    border: #333 dotted 1px;
+    img {
+        padding: 5px;
+        max-height: 350px;
+        max-width: 100%;
+    }
+}
+
+// Order Layout Canvas
+#canvas_wrapper {
+    text-align: center;
+    canvas {
+        border: 1px solid #ced4da;
+    }
+}
+
+#v_label {
+    white-space: nowrap;
+    div {
+		width: 220px;
+		margin: 0 -100px;
+        transform-origin: 50% 50%;
+        transform: rotate(-90deg);
+
+    }
+}
+
+// PDF Canvas
+#pdf-loader {
+	display: none;
+	text-align: center;
+	color: #999999;
+	font-size: 13px;
+	line-height: 100px;
+	height: 100px;
+}
+
+#pdf-canvas {
+	box-sizing: border-box;
+	width: 100%;
+	margin: -20px auto 0;
+}
+
+// Forms
+.form-footer-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    > :not(:first-child) { margin-left: .25rem; }
+    > :not(:last-child) { margin-right: .25rem; }
+}
+
+.form-footer-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    > :not(:first-child) { margin-left: .25rem; }
+    > :not(:last-child) { margin-right: .25rem; }
+}
+
+// Modal Dialog Fixes
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        max-width: 650px;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-dialog {
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-dialog {
+        max-width: 1140px;
+    }
+}
+
+.modal-sm { max-width: 500px;}
+.modal-md { max-width: 650px;}
+.modal-lg { max-width: 800px;}
+.modal-xl { max-width: 1140px;}
+
+// Additional colors
+.text-indigo {
+	color: #6610f2;
+}
+
+// Vue-Multiselect Style Fix
+.multiselect {
+    min-height: 35px;
+}
+
+.is-invalid .multiselect__tags {
+    border: 1px solid #dc3545;
+}
+
+.is-valid .multiselect__tags {
+    border: 1px solid #4dbd74;
+}
+
+.multiselect {
+    div, ul {
+        border-radius: 0;
+    }
+
+    .multiselect__content-wrapper {
+        border-radius: 0;
+    }
+
+    .multiselect__input,
+    .multiselect__single,
+    .multiselect__placeholder,
+    .multiselect__element {
+        font-size: 0.875rem;
+        color: #5c6873;
+    }
+
+    .multiselect__tags {
+        padding: 7px 40px 0 12px;
+        min-height: 35px;
+
+        .multiselect__placeholder {
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .multiselect__single,
+        .multiselect__input,
+        .multiselect__input .multiselect__single {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .multiselect__select {
+        padding: 0;
+        height: 35px;
+    }
+
+    .multiselect__select::before {
+        right: -4px;
+        top: 60%;
+        border-color: #23282c transparent transparent;
+    }
+}
+
+// Material Design Icons
+.material-icons, .material-icons-outlined {
+    font-size: 21px;
+}
+
+// Drop Down Menu Fix
+.dropdown-menu {
+    margin: 0.9rem 0 0 !important;
+}
+
+.nav-item .material-icons-outlined {
+    font-size: 24px;
+}
+
+.dropdown-item > .material-icons-outlined,
+.nav-link > .material-icons-outlined {
+    vertical-align: bottom;
+    margin-right: 6px;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+// FileUploadComponent
+.error-message {
+    color: white;
+    a {
+        text-decoration: underline dotted;
+        color: white;
+        &:hover {
+            color: lightgray;
+        }
+    }
+}
+
+.warning-message {
+    color: black;
+    a {
+        text-decoration: underline dotted;
+        color: black;
+        &:hover {
+            color: darkgray;
+        }
+    }
+}
+
+.text-red {
+    color: #f86c6b !important;
+}
+
+.text-green {
+    color: #4dbd74 !important;
+}

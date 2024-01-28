@@ -1,0 +1,65 @@
+user {
+	id
+	first_name
+	last_name
+	email
+	mobile
+-	tel					(вынести в юр. лицо)
+}
+
+$this->hasOne('\App\Models\Customer');
+$this->hasOne('\App\Models\Manager');
+
+
+customer {
+	id
+	user_id				(связь с пользователем в таблице users)
+	manager_id			(связь с менеджером клиента)
+	customer_name		(название клиента)
+	customer_city
+	customer_address
+	account			   	(состояние счета, грн)
+	credit_limit		(кредитный лимит, грн)
+	created_at
+	updated_at
+
++	customer_type		(тип клинета: физ.лицо/юр. лицо)	
+}
+
+$this->belongsTo('\App\Models\Auth\User');
+$this->belongsTo('\App\Models\Manager');
+$this->hasMany('\App\Models\Order');
+$this->hasMany('\App\Models\Delivery');
+
++$this->hasMany('\App\Models\LegalEntity');
+
+
+legal_entity {
+	id
+	customer_id			(связь с клиентом)
+	nds_payer			(плательщик НДС, да/нет)
+	legal_name			(полное название)
+	alias				(сокращенное название)
+	bank_name			(банк клиента)
+	bank_mfo			(МФО банка)
+	bank_account		(номер банковского счета)
+	egrpou				(ЕГРПОУ)
+	inn					(ИНН)
+	director_fio		(ФИО директора)
+
+	(фактический адрес)
+	f_index				(почтовый индекс)
+	f_city				(город)	
+	f_street			(улица)
+	f_house				(номер дома)
+	f_office			(номер офиса)
+	f_tel				(фактический номер телефона)
+	acc_email			(e-mail бухгалтера)
+
+	(юридический адрес)
+	l_index				(почтовый индекс)
+	l_city				(город)
+	l_street			(улица)
+	l_house				(номер дома)
+	l_office			(номер офиса)
+}
