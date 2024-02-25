@@ -301,7 +301,7 @@ export default {
             this.form.material = this.materialOptions[0];
             this.updateMaterial()
 
-            this.matglanec = ["Mat", "Glanec"].forEach((value, index) => {
+            this.matglanec = ["Матовое", "Глянцевое"].forEach((value, index) => {
                 this.matglanecOptions.push({value: value, text: value, indx: index+1})
             } )
             this.maxW = this.form.layoutW - this.form.fieldW * 2 + this.form.bleed * 2;

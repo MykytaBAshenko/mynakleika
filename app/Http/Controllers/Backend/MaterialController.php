@@ -77,26 +77,26 @@ class MaterialController extends Controller
         // $data['minH'] = MoneyHelper::parseToInt($data['minH']);
         
         $combinedCostPrinting = array_combine(array_map(function ($value) {
-            return intval($value);
+            return floatval($value);
         }, $data['cost_printing_keys']), array_map(function ($value) {
-            return intval($value);
+            return floatval($value);
         }, $data['cost_printing_values']));
         $combinedCutPrinting = array_combine(array_map(function ($value) {
-            return intval($value);
+            return floatval($value);
         }, $data['cost_cut_keys']), array_map(function ($value) {
-            return intval($value);
+            return floatval($value);
         }, $data['cost_cut_values']));
         $quantityFactorPrinting = array_combine(array_map(function ($value) {
-            return intval($value);
+            return floatval($value);
         }, $data['quantity_factor_keys']), array_map(function ($value) {
-            return intval($value);
+            return floatval($value);
         }, $data['quantity_factor_values']));
         $mat_glanec_covering_glanec = [];
 
         foreach ($data['mat_glanec_covering_keys'] as $key => $value) {
           $mat_glanec_covering_glanec[$value] = [
-            intval($data['mat_glanec_covering_mat_values'][$key]),
-            intval($data['mat_glanec_covering_glanec_values'][$key])
+            floatval($data['mat_glanec_covering_mat_values'][$key]),
+            floatval($data['mat_glanec_covering_glanec_values'][$key])
           ];
         }
         // Encode the combined array into JSON format

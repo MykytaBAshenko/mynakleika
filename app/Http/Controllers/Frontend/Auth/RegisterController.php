@@ -55,7 +55,6 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm(Request $request)
     {
-        abort_unless(config('access.registration'), 404);
 
         return view('frontend.auth.register')
             ->withSocialiteLinks((new Socialite)->getSocialLinks());

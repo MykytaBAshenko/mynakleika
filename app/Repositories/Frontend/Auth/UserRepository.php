@@ -264,9 +264,7 @@ class UserRepository extends BaseRepository
          */
         if (! $user) {
             // Registration is not enabled
-            if (! config('access.registration')) {
                 throw new GeneralException(__('exceptions.frontend.auth.registration_disabled'));
-            }
 
             // Get users first name and last name from their full name
             $nameParts = $this->getNameParts($data->getName());

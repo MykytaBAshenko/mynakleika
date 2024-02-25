@@ -9,9 +9,7 @@
         <ul class="navbar-nav">
             @guest
 				<li class="nav-item"><a href="{{route('frontend.auth.login')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.login')) }}">@lang('navs.frontend.login')</a></li>
-                @if(config('access.registration'))
                     <li class="nav-item"><a href="{{route('frontend.auth.register')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.register')) }}">@lang('navs.frontend.register')</a></li>
-                @endif
 			@endguest
 
 			@if(config('locale.status') && count(config('locale.languages')) > 1)

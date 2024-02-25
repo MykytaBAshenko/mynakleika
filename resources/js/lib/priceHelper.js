@@ -67,14 +67,14 @@ export class PriceHelper {
        + getMatGlanec()) 
        + (Number(this.options.euroCurrency) * material.material_price ))
 
-       console.log(
-        numberOfSheets
-        ,this.getValueBetweenKeys(material.cost_printing, numberOfSheets)
-        ,this.getValueBetweenKeys(material.cost_cut, numberOfSheets) 
-        ,this.getValueBetweenKeys(material.quantity_factor, numberOfItemsPerList)
-        ,getMatGlanec() 
-        ,Number(this.options.euroCurrency) 
-        ,material.material_price )
+      //  console.log(
+      //   numberOfSheets
+      //   ,this.getValueBetweenKeys(material.cost_printing, numberOfSheets)
+      //   ,this.getValueBetweenKeys(material.cost_cut, numberOfSheets) 
+      //   ,this.getValueBetweenKeys(material.quantity_factor, numberOfItemsPerList)
+      //   ,getMatGlanec() 
+      //   ,Number(this.options.euroCurrency) 
+      //   ,material.material_price )
        return this.price;
     }
 

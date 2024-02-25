@@ -46,7 +46,6 @@ class UserRegistrationTest extends TestCase
     /** @test */
     public function user_registration_can_be_disabled()
     {
-        config(['access.registration' => false]);
         $this->get('/register')->assertStatus(404);
     }
 

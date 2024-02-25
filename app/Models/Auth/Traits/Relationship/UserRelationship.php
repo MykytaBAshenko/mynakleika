@@ -37,7 +37,6 @@ trait UserRelationship
     {
         return $this->hasMany(PasswordHistory::class);
     }
-
     /**
      * @return HasOne
      */

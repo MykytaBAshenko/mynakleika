@@ -8,3 +8,11 @@
 
 // import some fonts
 @import "nakleika-font";
+.warningChangeAlert{ 
+  background-color: var(--red);;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+}

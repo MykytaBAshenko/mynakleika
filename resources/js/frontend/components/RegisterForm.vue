@@ -125,7 +125,6 @@
                         <b-form-input
                             id="password"
                             v-model="form.password"
-                            type="password"
                             ref="password"
                             :placeholder="__('forms.register.placeholder.password')"
                             :state="errors[0] ? false : (valid ? true : null)"
@@ -158,7 +157,6 @@
                         <b-form-input
                             id="password-confirmation"
                             v-model="form.password_confirmation"
-                            type="password"
                             data-vv-as="password"
                             :placeholder="__('forms.register.placeholder.password_confirmation')"
                             :state="errors[0] ? false : (valid ? true : null)"

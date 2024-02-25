@@ -18,6 +18,7 @@ use App\Events\Backend\Auth\User\UserPasswordChanged;
 use App\Notifications\Backend\Auth\UserAccountActive;
 use App\Events\Backend\Auth\User\UserPermanentlyDeleted;
 use App\Notifications\Frontend\Auth\UserNeedsConfirmation;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class UserRepository.
@@ -310,6 +311,7 @@ class UserRepository extends BaseRepository
             $user->passwordHistories()->delete();
             $user->providers()->delete();
             $user->sessions()->delete();
+            $user->customer()->delete();
 
             if ($user->forceDelete()) {
                 event(new UserPermanentlyDeleted($user));

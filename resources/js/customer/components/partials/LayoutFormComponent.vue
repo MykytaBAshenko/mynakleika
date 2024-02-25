@@ -1,7 +1,11 @@
 <template>
     <transition name="fade">
         <div>
-            <h5 class="pt-3">
+            <template v-if="wasChangeMaterial">
+             <div  v-if="wasChangeMaterial" class="warningChangeAlert">Обновите файл для нового материала</div> 
+            </template>
+            
+             <h5 class="pt-3">
                 <template v-if="isMinAllowableSizeValues">
                     Количество листов: {{ listCount }}
                 </template>
@@ -65,11 +69,13 @@ export default {
             bleed: 0,
             listCount: 0,
             isMinAllowableSizeValues: false,
+            wasChangeMaterial: false
         }
     },
 
     mounted() {
         this.initCanvas();
+        this.wasChangeMaterial = false;
     },
 
     created() {
@@ -122,13 +128,13 @@ export default {
 
     methods: {
         initCanvas(data) {
+            this.wasChangeMaterial = true;
             if(data) {
                 this.layoutW = parseFloat(data.form.layoutW);
-            this.layoutH = parseFloat(data.form.layoutH);
-            this.fieldW = parseFloat(data.form.fieldW);
-            this.fieldH = parseFloat(data.form.fieldH);
-            this.bleed = parseFloat(data.form.bleed);
-
+                this.layoutH = parseFloat(data.form.layoutH);
+                this.fieldW = parseFloat(data.form.fieldW);
+                this.fieldH = parseFloat(data.form.fieldH);
+                this.bleed = parseFloat(data.form.bleed);
             } 
             this.layout = new LayoutCanvas(
                 this.layoutW,
@@ -147,6 +153,7 @@ export default {
         },
 
         loadImage(fileName) {
+            this.wasChangeMaterial = false;
             this.img.src = "/storage/" + fileName + ".tn.jpg";
             this.img.addEventListener('load', () => {
                 this.layout.setObjType('img');
