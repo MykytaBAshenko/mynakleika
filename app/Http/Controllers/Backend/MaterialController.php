@@ -40,7 +40,40 @@ class MaterialController extends Controller
     public function store(Request $request)
     {
         /* @todo rewrite, validate data  */
-        Material::create($request->all());
+        $data = $request->all();
+
+         
+        $combinedCostPrinting = array_combine(array_map(function ($value) {
+            return floatval($value);
+        }, $data['cost_printing_keys']), array_map(function ($value) {
+            return floatval($value);
+        }, $data['cost_printing_values']));
+        $combinedCutPrinting = array_combine(array_map(function ($value) {
+            return floatval($value);
+        }, $data['cost_cut_keys']), array_map(function ($value) {
+            return floatval($value);
+        }, $data['cost_cut_values']));
+        $quantityFactorPrinting = array_combine(array_map(function ($value) {
+            return floatval($value);
+        }, $data['quantity_factor_keys']), array_map(function ($value) {
+            return floatval($value);
+        }, $data['quantity_factor_values']));
+        $mat_glanec_covering_glanec = [];
+
+        foreach ($data['mat_glanec_covering_keys'] as $key => $value) {
+          $mat_glanec_covering_glanec[$value] = [
+            floatval($data['mat_glanec_covering_mat_values'][$key]),
+            floatval($data['mat_glanec_covering_glanec_values'][$key])
+          ];
+        }
+        // Encode the combined array into JSON format
+        $data['cost_printing'] = json_encode($combinedCostPrinting);
+        $data['cost_cut'] = json_encode($combinedCutPrinting);
+        $data['quantity_factor'] = json_encode($quantityFactorPrinting);
+        $data['mat_glanec_covering'] = json_encode($mat_glanec_covering_glanec);
+        Log::info($data);
+        Material::create($data);
+
         return redirect()->route('admin.material.index')->withFlashSuccess(__('alerts.backend.material.created'));
     }
 

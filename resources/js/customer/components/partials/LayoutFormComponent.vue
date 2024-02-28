@@ -1,9 +1,6 @@
 <template>
     <transition name="fade">
         <div>
-            <template v-if="wasChangeMaterial">
-             <div  v-if="wasChangeMaterial" class="warningChangeAlert">Обновите файл для нового материала</div> 
-            </template>
             
              <h5 class="pt-3">
                 <template v-if="isMinAllowableSizeValues">
@@ -69,13 +66,11 @@ export default {
             bleed: 0,
             listCount: 0,
             isMinAllowableSizeValues: false,
-            wasChangeMaterial: false
         }
     },
 
     mounted() {
         this.initCanvas();
-        this.wasChangeMaterial = false;
     },
 
     created() {
@@ -103,6 +98,20 @@ export default {
 
         this.bus.$on('materialsChanged', (data) => {
             this.initCanvas(data)
+            console.log(data)
+            if (data.callAlert === true) {
+    // Create the popup element
+    const popup = document.createElement('div');
+    popup.classList.add('popup-alert'); // Apply CSS classes for styling
+    popup.textContent = "Обновите файл";
+    // Append the popup to the body
+    document.getElementById("canvas_wrapper").appendChild(popup);
+
+    // Set a timeout to remove the popup after 2 minutes (adjust as needed)
+    setTimeout(() => {
+        document.getElementById("canvas_wrapper").removeChild(popup);
+    }, 8 * 1000);
+  }
         });
     },
 
@@ -128,7 +137,6 @@ export default {
 
     methods: {
         initCanvas(data) {
-            this.wasChangeMaterial = true;
             if(data) {
                 this.layoutW = parseFloat(data.form.layoutW);
                 this.layoutH = parseFloat(data.form.layoutH);
@@ -153,7 +161,6 @@ export default {
         },
 
         loadImage(fileName) {
-            this.wasChangeMaterial = false;
             this.img.src = "/storage/" + fileName + ".tn.jpg";
             this.img.addEventListener('load', () => {
                 this.layout.setObjType('img');

@@ -33,10 +33,13 @@ class PayerController extends Controller
     public function update(PayerUpdateRequest $request, int $legalEntityId)
     {
         $legalEntity = LegalEntity::find($legalEntityId);
-
         try {
-            $legalEntity->update($request->validated());
-
+            if ($request->verification_status == 3) {
+                $sql = "DELETE FROM legal_entities WHERE id = ?";
+                DB::delete($sql, [$legalEntityId]); 
+            } else {
+                $legalEntity->update($request->validated());
+            }
             return response()->json( ['status' => 'success'] );
         } catch (\Exception $exception) {
             Log::error($exception->getMessage());

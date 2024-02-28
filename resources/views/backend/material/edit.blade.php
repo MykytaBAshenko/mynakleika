@@ -120,7 +120,11 @@
                         ->value($material['bleed'])
                         ->required() }}
                 </div><!--form-group-->
-
+                <div style="background-color: red; padding: 70px 0; font-size: 40px; color: white;">
+                        ЦЫФРЫ ИНДЕКСАЦИИ НЕ ДОЛЖНЫ ПОВТОРЯТЬСЯ (1,2,3,4,5,6,7,8)
+                        <br/>
+                        ИНЧЕ ТАБЛИЦА СЛОМАТЬСЯ
+            </div>
                 <div class="row mt-4">
                     <div class="form-group col">
                         <h4 class="card-title mb-3">{{ "cost_printing" }}</h4>

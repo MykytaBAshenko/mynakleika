@@ -24,7 +24,7 @@
                             ->class('form-control')
                             ->attribute('maxlength', 191)
                             ->name('material_name')
-                            ->required()
+                            ->value(1)->required()
                             ->autofocus() }}
                     </div><!--form-group-->
                 </div><!--col-->
@@ -51,7 +51,7 @@
                         {{ html()->input()
                             ->class('form-control')
                             ->name('material_price')
-                            ->required()
+                            ->value(1)->required()
                             ->autofocus() }}
                     </div><!--form-group-->
                 </div><!--col-->
@@ -63,7 +63,7 @@
                     {{ html()->input()
                         ->class('form-control')
                         ->name('layoutW')
-                        ->required() }}
+                        ->value(1)->required() }}
                 </div><!--form-group-->
 
                 <div class="form-group col-sm-6">
@@ -72,7 +72,7 @@
                     {{ html()->input()
                         ->class('form-control')
                         ->name('layoutH')
-                        ->required() }}
+                        ->value(1)->required() }}
                 </div><!--form-group-->
 
                 <div class="form-group col-sm-6">
@@ -81,7 +81,7 @@
                     {{ html()->input()
                         ->class('form-control')
                         ->name('fieldW')
-                        ->required() }}
+                        ->value(1)->required() }}
                 </div><!--form-group-->
 
                 <div class="form-group col-sm-6">
@@ -90,7 +90,7 @@
                     {{ html()->input()
                         ->class('form-control')
                         ->name('fieldH')
-                        ->required() }}
+                        ->value(1)->required() }}
                 </div><!--form-group-->
 
                 <div class="form-group col-sm-6">
@@ -99,9 +99,219 @@
                     {{ html()->input()
                         ->class('form-control')
                         ->name('bleed')
-                        ->required() }}
+                        ->value(1)->required() }}
                 </div><!--form-group-->
             </div><!--row-->
+            <div style="background-color: red; padding: 70px 0; font-size: 40px; color: white;">
+                        ЦЫФРЫ ИНДЕКСАЦИИ НЕ ДОЛЖНЫ ПОВТОРЯТЬСЯ (1,2,3,4,5,6,7,8)
+                        <br/>
+                        ИНЧЕ ТАБЛИЦА СЛОМАТЬСЯ
+            </div>
+            <div class="row mt-4">
+                    <div class="form-group col">
+                        <h4 class="card-title mb-3">{{ "cost_printing" }}</h4>
+                        
+                        <table class="table">
+                            <tr>
+                            @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                   @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                    {{ html()->input()
+                                        ->class('form-control')
+                                        ->name('cost_printing_keys['.$counter.']')
+                                        ->value($counter)->required() }}</th>
+                                    @php
+                                        $counter++;
+                                    @endphp
+                                    @endfor
+
+                            </tr>
+    
+                            <tr>
+                                @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                        {{ html()->input()
+                                            ->class('form-control')
+                                            ->name('cost_printing_values['.$counter.']')
+                                            ->value($counter)->required() }}
+                                        @php
+                                            $counter++;
+                                        @endphp
+                                    </td>
+                                    @endfor
+                            </tr>
+                        </table>
+                    </div><!--col-->
+                </div><!--row-->
+                <div class="row mt-4">
+                    <div class="form-group col">
+                        <h4 class="card-title mb-3">{{ "cost_cut" }}</h4>
+                        
+                        <table class="table">
+                            <tr>
+                            @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                   @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                    {{ html()->input()
+                                        ->class('form-control')
+                                        ->name('cost_cut_keys['.$counter.']')
+                                        ->value($counter)->required() }}</th>
+                                    @php
+                                        $counter++;
+                                    @endphp
+                                    @endfor
+
+                            </tr>
+    
+                            <tr>
+                                @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                        {{ html()->input()
+                                            ->class('form-control')
+                                            ->name('cost_cut_values['.$counter.']')
+                                            ->value($counter)->required() }}
+                                        @php
+                                            $counter++;
+                                        @endphp
+                                    </td>
+                                    @endfor
+                            </tr>
+                        </table>
+                    </div><!--col-->
+                </div><!--row-->
+
+
+                <div class="row mt-4">
+                    <div class="form-group col">
+                        <h4 class="card-title mb-3">{{ "quantity_factor" }}</h4>
+                        
+                        <table class="table">
+                            <tr>
+                            @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                   @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                    {{ html()->input()
+                                        ->class('form-control')
+                                        ->name('quantity_factor_keys['.$counter.']')
+                                        ->value($counter)->required() }}</th>
+                                    @php
+                                        $counter++;
+                                    @endphp
+                                    @endfor
+
+                            </tr>
+    
+                            <tr>
+                                @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                        {{ html()->input()
+                                            ->class('form-control')
+                                            ->name('quantity_factor_values['.$counter.']')
+                                            ->value($counter)->required() }}
+                                        @php
+                                            $counter++;
+                                        @endphp
+                                    </td>
+                                    @endfor
+                            </tr>
+                        </table>
+                    </div><!--col-->
+                </div><!--row-->
+
+                <div class="row mt-4">
+                    <div class="form-group col">
+                    <h4 class="card-title mb-3">{{ "mat_glanec_covering (matovia snachala, a potom glanec)" }}</h4>
+                        
+                        <table class="table">
+                            <tr>
+                            @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                   @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                    {{ html()->input()
+                                        ->class('form-control')
+                                        ->name('mat_glanec_covering_keys['.$counter.']')
+                                        
+                                        ->value($counter)->required() }}</th>
+                                    @php
+                                        $counter++;
+                                    @endphp
+                                    @endfor
+
+                            </tr>
+    
+                            <tr>
+                                @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                        {{ html()->input()
+                                            ->class('form-control')
+                                            ->name('mat_glanec_covering_mat_values['.$counter.']')
+                                            
+                                            ->value($counter)->required() }}
+                                        @php
+                                            $counter++;
+                                        @endphp
+                                    </td>
+                                    @endfor
+                            </tr>
+
+                            <tr>
+                                @php
+                                $counter = 1;
+                                $max_fields = 8;
+                            @endphp
+                                @for ($i = 0; $i < $max_fields; $i++)
+                                    <td>
+                                  
+                                        {{ html()->input()
+                                            ->class('form-control')
+                                            ->name('mat_glanec_covering_glanec_values['.$counter.']')
+                                            
+                                            ->value($counter)->required() }}
+                                        @php
+                                            $counter++;
+                                        @endphp
+                                    </td>
+                                    @endfor
+                            </tr>
+                        </table>
+                    </div><!--col-->
+                </div><!--row-->
             <div class="row">
                 <div class="col col-sm-6">
                     <div class="form-group mb-0 clearfix">

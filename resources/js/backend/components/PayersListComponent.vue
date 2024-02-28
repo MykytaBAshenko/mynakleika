@@ -35,6 +35,7 @@
                     v-on:change="onToggleVerificationStatus(row.item, row.index)"
                 ></b-form-select>
             </template>
+            
         </b-table>
 
         <base-popup
@@ -98,6 +99,7 @@ export default {
                 { value: 0, text: 'Не подтвержден' },
                 { value: 1, text: 'Подтвержден' },
                 { value: 2, text: 'Отклонен' },
+                { value: 3, text: 'DELETE' },
             ],
 
             popup: {

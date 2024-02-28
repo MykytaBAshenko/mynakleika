@@ -9,10 +9,24 @@
 // import some fonts
 @import "nakleika-font";
 .warningChangeAlert{ 
-  background-color: var(--red);;
+  background-color: var(--red);
   text-align: center;
   font-size: 18px;
   color: white;
   padding: 15px;
   font-weight: bold;
+}
+#canvas_wrapper{
+  position: relative;
+}
+.popup-alert{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: var(--red);
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  padding: 30px 60px;
+  z-index: 4000;
 }

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreLegalEntityRequest;
 use App\Models\LegalEntity;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class LegalEntityController.
@@ -62,7 +63,6 @@ class LegalEntityController extends Controller
 	public function update(StoreLegalEntityRequest $request, string $id): JsonResponse
     {
         $validatedData = $request->validated();
-
         /* @var LegalEntity $legalEntity */
         $legalEntity = LegalEntity::find(Hashids::decode($id)[0]);
 

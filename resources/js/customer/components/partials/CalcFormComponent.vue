@@ -105,6 +105,7 @@
                             :placeholder="__('forms.order.placeholder.material')"
                             label="text"
                             selectLabel=""
+                            id="materialsss"
                             selectedLabel=""
                             deselectLabel=""
                             :class="getValidationStateClass(validationContext)"
@@ -318,7 +319,7 @@ export default {
                     this.form.matglanec
                 );
                 this.bus.$emit('countChanged', {
-                    'form': this.form,
+                    'form': this.form
                 });
             } else {
                 this.price = 0;
@@ -365,6 +366,7 @@ export default {
                 this.maxH = this.form.layoutH - this.form.fieldH * 2 + this.form.bleed * 2;
                 this.bus.$emit('materialsChanged', {
                     'form': this.form,
+                    callAlert: true
                 });
                 this.price = this.priceHelper.getPrice(
                     this.numberOfSheets,
