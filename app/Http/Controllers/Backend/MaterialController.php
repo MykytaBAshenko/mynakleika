@@ -101,8 +101,8 @@ class MaterialController extends Controller
         $data = $request->all();
 
         $data['material_price'] = floatval($data['material_price']);
-        $data['layoutW'] = intval($data['layoutW']);
-        $data['layoutH'] = intval($data['layoutH']);
+        $data['layoutW'] = floatval($data['layoutW']);
+        $data['layoutH'] = floatval($data['layoutH']);
         $data['fieldW'] = floatval($data['fieldW']);
         $data['fieldH'] = floatval($data['fieldH']);
         $data['bleed'] = floatval($data['bleed']);

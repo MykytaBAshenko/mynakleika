@@ -79,7 +79,6 @@ export class PriceHelper {
     }
 
     moneyFormatter(days) {
-      console.log(this.getValueBetweenKeys(this.options.speedIndex, days))
       return this.getValueBetweenKeys(this.options.speedIndex, days)
     }
 }

@@ -17,7 +17,7 @@
                     >
                         <b-form-file
                             v-model="file"
-                            v-on:input="clearForm"
+                            v-on:click="clearForm"
                             accept=".pdf"
                             :placeholder="__('forms.order.placeholder.file')"
                             :browse-text="__('buttons.general.choose')"
@@ -303,8 +303,10 @@
                 this.progressBar.counter = 0
                 this.fileName = this.processErrors = this.processWarnings = null
 
+  // Emit a clear event (optional)
                 this.$emit('clear');
-            },
+}
+
         }
     }
 </script>

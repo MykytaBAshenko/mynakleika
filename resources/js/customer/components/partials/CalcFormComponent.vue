@@ -100,7 +100,7 @@
                     >
                         <multiselect
                             v-model="form.material"
-                            v-on:input="onChange"
+                            v-on:input="onChangeMaterial"
                             :options="materialOptions"
                             :placeholder="__('forms.order.placeholder.material')"
                             label="text"
@@ -297,10 +297,22 @@ export default {
 
         getOptions() {
             this.materials.forEach((obj, indx) => {
-                this.materialOptions.push({ value: obj.id, text: obj.material_name, indx: indx })
-            });
-            this.form.material = this.materialOptions[0];
-            this.updateMaterial()
+    this.materialOptions.push({ value: obj.id, text: obj.material_name, indx: indx });
+});
+
+const urlParams = new URLSearchParams(window.location.search);
+const selectedMaterialValue = urlParams.get('material');
+
+let index;
+for (const option of this.materialOptions) {
+
+    if (option.indx === Number(selectedMaterialValue)) {
+        index = option.indx;
+        break;
+    }
+}
+
+this.form.material = index> -1 ? this.materialOptions[index] : this.materialOptions[0]; // Use default if not found
 
             this.matglanec = ["Матовое", "Глянцевое"].forEach((value, index) => {
                 this.matglanecOptions.push({value: value, text: value, indx: index+1})
@@ -310,6 +322,7 @@ export default {
             this.bus.$emit('materialsChanged', {
                     'form': this.form,
                 });
+                this.onChange()
         },
         onChangeCount() {
             if (this.form.material) {
@@ -358,6 +371,31 @@ export default {
                 });
             }
             if (this.form.material) {
+                this.updateMaterial()
+                this.form.days = Number(this.form.days);
+
+                this.maxW = this.form.layoutW - this.form.fieldW * 2 + this.form.bleed * 2;
+                this.maxH = this.form.layoutH - this.form.fieldH * 2 + this.form.bleed * 2;
+                this.bus.$emit('materialsChanged', {
+                    'form': this.form,
+                });
+                this.price = this.priceHelper.getPrice(
+                    this.numberOfSheets,
+                    this.materials[this.form.material.indx],
+                    this.form.matglanec
+                );
+            } else {
+                this.price = 0;
+            }
+        },
+        onChangeMaterial() {
+            if (this.isMinAllowableSizeValues) {
+                this.$emit('layoutChanged', {
+                    'form': this.form,
+                    'isMinAllowableSizeValues': this.isMinAllowableSizeValues
+                });
+            }
+            if (this.form.material) {
 
                 this.updateMaterial()
                 this.form.days = Number(this.form.days);
@@ -368,6 +406,13 @@ export default {
                     'form': this.form,
                     callAlert: true
                 });
+                let url = window.location.href;
+  let existingUrl = url.split("?")[0];
+
+
+    url = existingUrl + '?' + `material=${this.form.material.indx}`;
+
+  window.location.href = url;
                 this.price = this.priceHelper.getPrice(
                     this.numberOfSheets,
                     this.materials[this.form.material.indx],
