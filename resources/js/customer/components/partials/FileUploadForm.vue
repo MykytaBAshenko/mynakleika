@@ -17,7 +17,7 @@
                     >
                         <b-form-file
                             v-model="file"
-                            v-on:click="clearForm"
+                            v-on:input="clearForm"
                             accept=".pdf"
                             :placeholder="__('forms.order.placeholder.file')"
                             :browse-text="__('buttons.general.choose')"

@@ -105,7 +105,6 @@
                             :placeholder="__('forms.order.placeholder.material')"
                             label="text"
                             selectLabel=""
-                            id="materialsss"
                             selectedLabel=""
                             deselectLabel=""
                             :class="getValidationStateClass(validationContext)"
@@ -297,8 +296,8 @@ export default {
 
         getOptions() {
             this.materials.forEach((obj, indx) => {
-    this.materialOptions.push({ value: obj.id, text: obj.material_name, indx: indx });
-});
+                this.materialOptions.push({ value: obj.id, text: obj.material_name, indx: indx })
+            });
 
 const urlParams = new URLSearchParams(window.location.search);
 const selectedMaterialValue = urlParams.get('material');
@@ -320,7 +319,7 @@ this.form.material = index> -1 ? this.materialOptions[index] : this.materialOpti
             this.maxW = this.form.layoutW - this.form.fieldW * 2 + this.form.bleed * 2;
             this.maxH = this.form.layoutH - this.form.fieldH * 2 + this.form.bleed * 2;
             this.bus.$emit('materialsChanged', {
-                    'form': this.form,
+                    'form': this.form
                 });
                 this.onChange()
         },
@@ -404,14 +403,10 @@ this.form.material = index> -1 ? this.materialOptions[index] : this.materialOpti
                 this.maxH = this.form.layoutH - this.form.fieldH * 2 + this.form.bleed * 2;
                 this.bus.$emit('materialsChanged', {
                     'form': this.form,
-                    callAlert: true
                 });
                 let url = window.location.href;
   let existingUrl = url.split("?")[0];
-
-
     url = existingUrl + '?' + `material=${this.form.material.indx}`;
-
   window.location.href = url;
                 this.price = this.priceHelper.getPrice(
                     this.numberOfSheets,

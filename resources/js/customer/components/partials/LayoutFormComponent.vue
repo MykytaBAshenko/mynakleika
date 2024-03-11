@@ -98,19 +98,6 @@ export default {
 
         this.bus.$on('materialsChanged', (data) => {
             this.initCanvas(data)
-//             if (data.callAlert === true) {
-//     // Create the popup element
-//     const popup = document.createElement('div');
-//     popup.classList.add('popup-alert'); // Apply CSS classes for styling
-//     popup.textContent = "Вы выбрали новый материал с отличающимся размером!!! Для продолжения работы, создайте новый заказ, предва";
-//     // Append the popup to the body
-//     document.getElementById("canvas_wrapper").appendChild(popup);
-
-//     // Set a timeout to remove the popup after 2 minutes (adjust as needed)
-//     setTimeout(() => {
-//         document.getElementById("canvas_wrapper").removeChild(popup);
-//     }, 8 * 1000);
-//   }
         });
     },
 
