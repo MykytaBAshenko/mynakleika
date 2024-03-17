@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mysql:
-    container_name: mysql
+    container_name: mynakl-mysql
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
     environment:
@@ -18,7 +18,7 @@ services:
       - internal
 
   app:
-    container_name: app
+    container_name: mynakl-app
     build:
       context: ./docker/php
     environment:
@@ -35,7 +35,7 @@ services:
       - internal
 
   nginx:
-    container_name: nginx
+    container_name: mynakl-nginx
     image: nginx:stable-alpine
     ports:
       - '80:80'
