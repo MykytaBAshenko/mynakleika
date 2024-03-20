@@ -25,7 +25,7 @@ class StoreOrderRequest extends FormRequest
     {
         return [
             'order_ref'         => 'string',
-            'order_comments'    => 'string',
+            'order_comments'    => 'string|nullable',
             'file_name'         => 'string',
             'width' 		    => 'numeric',
             'height' 		    => 'numeric',
