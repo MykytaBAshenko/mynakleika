@@ -121,8 +121,6 @@ export default {
         });
     },
 
-
-
     methods: {
         laminationChanged(data) {
         this.form.lamination = data.form.matglanec ? data.form.matglanec.indx : 0;

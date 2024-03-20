@@ -66,5 +66,8 @@
         "vue-multiselect": "^2.1.6",
         "vue-spinner": "^1.0.3",
         "vue-the-mask": "^0.11.1"
-    }
+    },
+    "name": "mynakleika",
+    "version": "1.0.0",
+    "repository": "https://github.com/MykytaBAshenko/mynakleika.git"
 }

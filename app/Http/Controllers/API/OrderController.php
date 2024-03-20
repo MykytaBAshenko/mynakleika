@@ -20,11 +20,6 @@ use Illuminate\Support\Facades\Log;
 
 class OrderController extends BaseController
 {
-    public function __construct()
-    {
-
-    }
-
     /**
      * @param Request $request
      * @return LengthAwarePaginator

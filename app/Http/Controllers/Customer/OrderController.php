@@ -35,19 +35,20 @@ class OrderController extends Controller
     {
         // Get Materials in stock
         $materials = Material::select('id', 'material_name', 'material_price', 'layoutW', 'layoutH', 'fieldW', 'fieldH', 'bleed', 'cost_printing', 'cost_cut', 'quantity_factor', 'mat_glanec_covering')
-        ->where('in_stock', true)
-        ->get();
+            ->where('in_stock', true)
+            ->get();
     
-    Log::warning('This is a warning message.');
+//    Log::warning('This is a warning message.');
     
-    $materials->transform(function ($item) {
-        $item['mat_glanec_covering'] = json_decode($item['mat_glanec_covering']);
-        $item['quantity_factor'] = json_decode($item['quantity_factor']);
-        $item['cost_cut'] = json_decode($item['cost_cut']);
-        $item['cost_printing'] = json_decode($item['cost_printing']);
-    
-        return $item;
-    });
+        $materials->transform(function ($item) {
+            $item['mat_glanec_covering'] = json_decode($item['mat_glanec_covering']);
+            $item['quantity_factor'] = json_decode($item['quantity_factor']);
+            $item['cost_cut'] = json_decode($item['cost_cut']);
+            $item['cost_printing'] = json_decode($item['cost_printing']);
+
+            return $item;
+        });
+
         $options = [
             "speedIndex" => array_map(function($item) {
                                     return (float) $item;
