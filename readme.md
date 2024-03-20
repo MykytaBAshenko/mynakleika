@@ -15,6 +15,7 @@
 5. run `docker-compose exec app php artisan storage:link` to generate storage link
 6. run db migrations `docker-compose exec app php artisan migrate`
 7. seed initial data to db `docker-compose exec app php artisan db:seed`
+8. generate laravel-passport api keys `docker-compose exec app php artisan passport:keys`
 
 
 ### Frontend часть
