@@ -176,16 +176,17 @@ abstract class BaseRepository implements RepositoryContract
     /**
      * Delete the specified model record from the database.
      *
-     * @param $id
+     * @param int $id
+     * @param bool $force
      *
      * @return bool|null
      * @throws \Exception
      */
-    public function deleteById($id) : bool
+    public function deleteById(int $id, bool $force = false) : bool
     {
         $this->unsetClauses();
 
-        return $this->getById($id)->delete();
+        return $force ? $this->getById($id)->forceDelete() : $this->getById($id)->delete();
     }
 
     /**

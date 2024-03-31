@@ -3,11 +3,9 @@
 namespace App\Models\Auth;
 
 use App\Models\Customer;
-use App\Models\Manager;
 use App\Models\Traits\Uuid;
 use Carbon\Carbon;
 use Laravel\Passport\HasApiTokens;
-use phpDocumentor\Reflection\Types\Null_;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Auth\Traits\Scope\UserScope;
@@ -43,7 +41,6 @@ use App\Models\Auth\Traits\Relationship\UserRelationship;
  * @property Carbon deleted_at
  *
  * @property Customer customer
- * @property Manager manager
  */
 class User extends Authenticatable
 {

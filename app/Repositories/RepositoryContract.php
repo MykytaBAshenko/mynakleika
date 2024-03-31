@@ -17,7 +17,7 @@ interface RepositoryContract
 
     public function delete();
 
-    public function deleteById($id);
+    public function deleteById(int $id, bool $force);
 
     public function deleteMultipleById(array $ids);
 
