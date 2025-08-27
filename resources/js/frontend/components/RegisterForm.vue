@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <ValidationObserver v-slot="{ handleSubmit }" ref="form">
         <b-form @submit.prevent="handleSubmit (onSubmit)">
             <div class="row">
@@ -244,3 +244,4 @@
 <style scoped>
 
 </style>
+-->

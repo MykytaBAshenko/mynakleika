@@ -1,5 +1,4 @@
-<template>
-    <div class="mb-4">
+<!-- <template>     <div class="mb-4">
         <ValidationObserver ref="order_create">
             <b-form @submit.prevent="onSubmit">
                 <h4 class="py-2">1. Загрузка макета</h4>
@@ -231,3 +230,4 @@ export default {
     },
 }
 </script>
+-->

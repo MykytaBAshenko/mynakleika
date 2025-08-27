@@ -132,7 +132,7 @@
                             v-model="form.matglanec"
                             v-on:input="onChangeMatGlanec"
                             :options="matglanecOptions"
-                            :placeholder="__('forms.order.placeholder.lamination')"
+                            :placeholder="placeholderText"
                             label="text"
                             selectLabel=""
                             selectedLabel=""
@@ -280,6 +280,9 @@ export default {
                 return { numberOfSheets: 0, numberOfItemsPerList: 0}
 
             }
+        },
+        placeholderText() {
+            return this.form.matglanec ? '' : 'Без покрытия'
         }
     },
 
@@ -313,9 +316,11 @@ for (const option of this.materialOptions) {
 
 this.form.material = index> -1 ? this.materialOptions[index] : this.materialOptions[0]; // Use default if not found
 
-            this.matglanec = ["Матовое", "Глянцевое"].forEach((value, index) => {
-                this.matglanecOptions.push({value: value, text: value, indx: index+1})
-            } )
+            this.matglanecOptions = [
+                { value: "Без покрытия", text: "Без покрытия", indx: 0 },
+                { value: "Матовое", text: "Матовое", indx: 1 },
+                { value: "Глянцевое", text: "Глянцевое", indx: 2 },
+            ];
             this.maxW = this.form.layoutW - this.form.fieldW * 2 + this.form.bleed * 2;
             this.maxH = this.form.layoutH - this.form.fieldH * 2 + this.form.bleed * 2;
             this.bus.$emit('materialsChanged', {
@@ -435,3 +440,22 @@ this.form.material = index> -1 ? this.materialOptions[index] : this.materialOpti
     },
 }
 </script>
+<style scoped>
+>>> .multiselect__option--highlight{
+    display: flex;
+    align-items: center;
+}
+>>> .multiselect__option--highlight:hover span::after {
+    content: "✓";
+    float: right;
+    margin-left: 8px;
+    font-size: 2em;
+}
+>>> .multiselect__option--highlight.multiselect__option--selected:hover span::after {
+    content: "🗙";
+    float: right;
+    margin-left: 8px;
+    font-size: 2em;
+}
+
+</style>

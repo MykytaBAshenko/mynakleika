@@ -23,6 +23,9 @@
 
 8. run `yarn` or `npm install` для установки npm-пакетов
    (лучше не использовать node версии выше 14, может не собраться)
+-----
+nvm use 14 
+npm run development -- --watch
 
 #
 ### Based on Laravel 5.7 Boilerplate

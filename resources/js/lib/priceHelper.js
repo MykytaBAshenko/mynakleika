@@ -55,7 +55,7 @@ export class PriceHelper {
 
     getPrice({numberOfSheets, numberOfItemsPerList} = {}, material, matglanec) {
       let getMatGlanec = () => {
-        if(matglanec) {
+        if(matglanec && matglanec.indx) {
           return this.getValueBetweenKeys(material.mat_glanec_covering, numberOfSheets)[matglanec.indx - 1];
         }
         return 0;
